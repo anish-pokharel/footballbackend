@@ -1,16 +1,19 @@
-const mongoose= require('mongoose');
-const mongodb = require ('mongodb');
+const mongoose = require('mongoose');
+const mongodb = require('mongodb');
+require('dotenv').config();
+
+// Access environment variables
+const mongoURI = process.env.MONGODB_URI; 
 
 mongoose
-.connect("mongodb+srv://anish:anish@cluster0.xuf0z19.mongodb.net/Football-predection", {
+.connect(mongoURI, {
    useNewUrlParser: true, 
    useUnifiedTopology: true, 
    family: 4,
  })
- .then(()=>{
-    console.log('database is connected');
-   
+ .then(() => {
+    console.log('Database is connected');
  })
- .catch((error)=>{
-    console.log("error ",error);
-})
+ .catch((error) => {
+    console.log('Error', error);
+ });

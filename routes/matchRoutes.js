@@ -35,6 +35,9 @@ router.get('/matches', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch matches' });
   }
 });
+router.get('/', (req, res) => {
+  res.send('Welcome to the Football Backend API');
+});
 
 // Get a match by ID
 router.get('/match/:id', async (req, res) => {
